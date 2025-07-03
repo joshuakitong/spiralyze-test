@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spiralyze Dev Test 2</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="container">
+    <div class="hero">
+      <div class="gradient-overlay"></div>
+      <nav class="navbar">
+        <img src="images/header logo.png" alt="Get an Intervention" class="logo" />
+        <ul class="nav-links">
+          <li><a href="#" class="nav-link-active">HOME</a></li>
+          <li><a href="#" class="nav-link">ABOUT</a></li>
+          <li><a href="#" class="nav-link">CONTACT</a></li>
+          <li>|</li>
+          <li><strong>CALL NOW FOR A CONSULT <span class="contact-number">123.456.7890</span></strong></li>
+        </ul>
+      </nav>
+
+      <div class="hero-content">
+        <div class="hero-text">
+          <img src="images/gai.svg" alt="Get an Intervention" />
+          <p>Showing greater respect to older adults can be done in several ways :<br /> acknowledging and putting to use the talents and skills of older adults; creating intergenerational initiatives; and allowing older adults to stay active and independent for as long as possible.</p>
+        </div>
+
+        <form class="contact-form">
+          <h2>Contact Us</h2>
+
+          <div class="input-row">
+            <div class="fancy-input">
+              <input type="text" id="firstName" required placeholder=" " />
+              <label for="firstName">First Name</label>
+            </div>
+            
+            <div class="fancy-input">
+              <input type="text" id="lastName" required placeholder=" " />
+              <label for="lastName">Last Name</label>
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="fancy-input">
+              <input type="text" id="businessEmail" required placeholder=" " />
+              <label for="businessEmail">Business Email</label>
+            </div>
+            
+            <div class="fancy-input">
+              <input type="text" id="company" required placeholder=" " />
+              <label for="company">Company</label>
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="fancy-input">
+              <select id="countrySelect" required>
+                <option value="" disabled selected hidden></option>
+              </select>
+              <label for="countrySelect">Country</label>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <img src="icons/submit.png" alt="" class="btn-icon" />
+            Submit
+          </button>
+        </form>
+      </div>
+
+      <div class="wave gray-wave">
+        <img src="waves/gray wave.png" alt="Gray Wave" />
+      </div>
+      <div class="wave white-wave">
+        <img src="waves/white wave.png" alt="White Wave" />
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
