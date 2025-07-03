@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You</title>
+  <style>
+    body {
+      margin: 0;
+      background: #194D41;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    p {
+      font-size: 1.2rem;
+      width: 32rem;
+      text-align: center;
+      opacity: 0; /* Hide it initially */
+      transform: translateY(20px); /* Optional: match animation start */
+      animation: fadeIn 1s ease-in-out 1s forwards; /* 2s delay, 1s animation */
+    }
+
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #5BC8AF;
+      animation: fall 3s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100vh) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Thank you for your submission!</h1>
+  <p>We’ve received your message and will get back to you as soon as possible.</p>
+
+  <script>
+    for (let i = 0; i < 50; i++) {
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = `${Math.random() * 100}vw`;
+      confetti.style.animationDuration = `${2 + Math.random() * 3}s`;
+      confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 60%)`;
+      document.body.appendChild(confetti);
+    }
+  </script>
+</body>
+</html>

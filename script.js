@@ -295,16 +295,14 @@ window.addEventListener("DOMContentLoaded", function () {
       if (dialog) dialog.remove();
     });
 
-    let hasError = false;
-
     const requiredFields = form.querySelectorAll("input[required], select[required]");
-    requiredFields.forEach(field => {
+
+    for (let field of requiredFields) {
       const isEmpty = field.tagName === "SELECT"
         ? !field.value
         : !field.value.trim();
 
       if (isEmpty) {
-        hasError = true;
         const wrapper = field.closest(".fancy-input");
         wrapper.classList.add("error");
 
@@ -314,15 +312,15 @@ window.addEventListener("DOMContentLoaded", function () {
           errorDialog.innerText = "This field can’t be empty. Please fill it in.";
           wrapper.appendChild(errorDialog);
         }
-      }
-    });
 
-    if (!hasError) {
-      form.submit();
+        field.focus();
+        return;
+      }
     }
+
+    window.location.href = "thankyou.html";
   });
 
-  // Real-time validation removal
   const requiredFields = form.querySelectorAll("input[required], select[required]");
   requiredFields.forEach(field => {
     const eventType = field.tagName === "SELECT" ? "change" : "input";
@@ -338,6 +336,35 @@ window.addEventListener("DOMContentLoaded", function () {
         if (existingDialog) existingDialog.remove();
       }
     });
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("videoModal");
+  const openBtn = document.getElementById("openVideo");
+  const closeBtn = document.getElementById("closeModal");
+  const videoPlayer = document.getElementById("videoPlayer");
+  const backdrop = modal.querySelector(".video-backdrop");
+
+  openBtn.addEventListener("click", () => {
+    modal.classList.add("active");
+    videoPlayer.currentTime = 0;
+    videoPlayer.play();
+  });
+
+  function closeModal() {
+    modal.classList.remove("active");
+    videoPlayer.pause();
+    videoPlayer.currentTime = 0;
+  }
+
+  closeBtn.addEventListener("click", closeModal);
+  backdrop.addEventListener("click", closeModal);
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      closeModal();
+    }
   });
 });
 

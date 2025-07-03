@@ -17,7 +17,7 @@
           <li><a href="#" class="nav-link-active">HOME</a></li>
           <li><a href="#" class="nav-link">ABOUT</a></li>
           <li><a href="#" class="nav-link">CONTACT</a></li>
-          <li>|</li>
+          <li className="hide-on-md-sm">|</li>
           <li><strong>CALL NOW FOR A CONSULT <span class="contact-number">123.456.7890</span></strong></li>
         </ul>
       </nav>
@@ -255,10 +255,23 @@
         </ul>
       </div>
 
-      <div class="play-button">
-        <img src="icons/playBg2.png" alt="Background 2" class="play-bg2" />
-        <img src="icons/playBg1.png" alt="Background 1" class="play-bg1" />
-        <img src="icons/play.png" alt="Play Icon" class="play-icon" />
+      <div class="video-wrapper">
+        <div class="play-button" id="openVideo">
+          <img src="icons/playBg2.png" alt="" class="play-bg2" />
+          <img src="icons/playBg1.png" alt="" class="play-bg1" />
+          <img src="icons/play.png" alt="Play" class="play-icon" />
+        </div>
+
+        <div id="videoModal" class="video-modal">
+          <div class="video-backdrop"></div>
+          <div class="video-content">
+            <button class="close-btn" id="closeModal">&times;</button>
+            <video id="videoPlayer" controls>
+              <source src="video/demo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
       </div>
 
       <img src="images/header logo.png" alt="Get an Intervention" class="logoBot" />
