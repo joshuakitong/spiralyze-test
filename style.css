@@ -477,6 +477,26 @@ body {
   margin-top: 8.35rem;
 }
 
+.header-with-line {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.horizontal-line-wu {
+  margin-top: 2rem;
+  flex-grow: 1;
+  height: 1px;
+  background-color: #EAEAEA;
+}
+
+.horizontal-line-wcoe {
+  margin-top: 8rem;
+  flex-grow: 1;
+  height: 1px;
+  background-color: #EAEAEA;
+}
+
 .paragraph-grid {
   display: grid;
   gap: 1.5rem;
