@@ -282,3 +282,35 @@ document.addEventListener("DOMContentLoaded", () => {
     toggleFilledClass();
   });
 });
+
+const track = document.querySelector('.carousel-track');
+const slides = document.querySelectorAll('.carousel-slide');
+const prevBtn = document.querySelector('.carousel-btn.left');
+const nextBtn = document.querySelector('.carousel-btn.right');
+const dots = document.querySelectorAll('.dot');
+
+let currentIndex = 0;
+
+function updateCarousel() {
+track.style.transform = `translateX(-${currentIndex * 100}%)`;
+dots.forEach((dot, idx) => {
+    dot.classList.toggle('active', idx === currentIndex);
+});
+}
+
+prevBtn.addEventListener('click', () => {
+currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+updateCarousel();
+});
+
+nextBtn.addEventListener('click', () => {
+currentIndex = (currentIndex + 1) % slides.length;
+updateCarousel();
+});
+
+dots.forEach((dot, idx) => {
+dot.addEventListener('click', () => {
+    currentIndex = idx;
+    updateCarousel();
+});
+});
