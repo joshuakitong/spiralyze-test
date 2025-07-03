@@ -13,7 +13,7 @@ body {
 
 .hero {
   position: relative;
-  background: url('images/header.png') center/cover no-repeat;
+  background: url('images/hero.png') center/cover no-repeat;
   color: white;
   padding-bottom: 140px;
   height: 32rem;
