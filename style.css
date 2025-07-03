@@ -671,6 +671,33 @@ body {
   transform: translate(-50%, -50%) scale(1.14);
 }
 
+.footer {
+  background-color: #EAEAEA;
+  color: #757575;
+  padding: 2.2rem 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.88rem;
+}
+
+.footer a {
+  color: #757575;
+  text-decoration: none;
+  margin: 0 4px;
+  font-size: 0.84rem;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
 @media (min-width: 1024px) {
   .info-grid {
     grid-template-columns: repeat(3, 1fr);
