@@ -283,6 +283,64 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+window.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".contact-form");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    document.querySelectorAll(".fancy-input").forEach(el => {
+      el.classList.remove("error");
+      const dialog = el.querySelector(".error-dialog");
+      if (dialog) dialog.remove();
+    });
+
+    let hasError = false;
+
+    const requiredFields = form.querySelectorAll("input[required], select[required]");
+    requiredFields.forEach(field => {
+      const isEmpty = field.tagName === "SELECT"
+        ? !field.value
+        : !field.value.trim();
+
+      if (isEmpty) {
+        hasError = true;
+        const wrapper = field.closest(".fancy-input");
+        wrapper.classList.add("error");
+
+        if (!wrapper.querySelector(".error-dialog")) {
+          const errorDialog = document.createElement("div");
+          errorDialog.classList.add("error-dialog");
+          errorDialog.innerText = "This field can’t be empty. Please fill it in.";
+          wrapper.appendChild(errorDialog);
+        }
+      }
+    });
+
+    if (!hasError) {
+      form.submit();
+    }
+  });
+
+  // Real-time validation removal
+  const requiredFields = form.querySelectorAll("input[required], select[required]");
+  requiredFields.forEach(field => {
+    const eventType = field.tagName === "SELECT" ? "change" : "input";
+    field.addEventListener(eventType, () => {
+      const wrapper = field.closest(".fancy-input");
+      const isEmpty = field.tagName === "SELECT"
+        ? !field.value
+        : !field.value.trim();
+
+      if (!isEmpty) {
+        wrapper.classList.remove("error");
+        const existingDialog = wrapper.querySelector(".error-dialog");
+        if (existingDialog) existingDialog.remove();
+      }
+    });
+  });
+});
+
 const track = document.querySelector('.carousel-track');
 const slides = document.querySelectorAll('.carousel-slide');
 const prevBtn = document.querySelector('.carousel-btn.left');

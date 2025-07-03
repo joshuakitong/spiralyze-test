@@ -146,7 +146,6 @@ body {
 .fancy-input {
   position: relative;
   margin-bottom: 1.5rem;
-  
 }
 
 .fancy-input input {
@@ -211,6 +210,43 @@ body {
 
 .fancy-input option {
   color: black;
+}
+
+.fancy-input.error input,
+.fancy-input.error select,
+.fancy-input.error label {
+  border-color: #FF7777;
+  color: #FF7777;
+}
+
+.error-dialog {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-51%);
+  background-color: #FF7777;
+  color: white;
+  font-size: 0.8rem;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-top: 4px;
+  z-index: 10;
+  text-align: center;
+  width: max-content;
+  width: 11rem;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.error-dialog::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #FF7777;
 }
 
 .input-row {
@@ -392,7 +428,7 @@ body {
 .carousel-btn {
   position: absolute;
   top: 50%;
-  transform: translateY(-95%);
+  transform: translateY(-145%);
   background: none;
   border: none;
   cursor: pointer;
@@ -465,11 +501,10 @@ body {
 
 .info-grid {
   display: grid;
-  gap: 1.5rem;
+  gap: 2rem;
   row-gap: 5rem;
   margin: 40px auto;
   max-width: 75rem;
-  padding: 0 16px;
 }
 
 .info-text {
