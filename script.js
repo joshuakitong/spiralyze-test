@@ -271,8 +271,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     };
 
-    toggleFilledClass();
+    select.addEventListener("focus", () => {
+      select.classList.add("filled");
+    });
 
     select.addEventListener("change", toggleFilledClass);
+
+    select.addEventListener("blur", toggleFilledClass);
+
+    toggleFilledClass();
   });
 });
