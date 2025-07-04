@@ -318,7 +318,8 @@ window.addEventListener("DOMContentLoaded", function () {
       }
     }
 
-    window.location.href = "thankyou.html";
+    const name = document.getElementById("firstName").value.trim();
+    window.location.href = `thankyou.html?name=${encodeURIComponent(name)}`;
   });
 
   const requiredFields = form.querySelectorAll("input[required], select[required]");
