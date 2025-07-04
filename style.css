@@ -511,6 +511,7 @@ body {
   margin-top: 1.2rem;
   font-size: 1.17rem;
   line-height: 1.45;
+  grid-template-columns: repeat(3, 1fr);
   color: #333333;
 }
 
@@ -529,6 +530,7 @@ body {
 
 .info-grid {
   display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   row-gap: 5rem;
   margin: 40px auto;
