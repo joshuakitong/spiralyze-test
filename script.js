@@ -369,6 +369,21 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const navMenu = document.getElementById("navMenu");
+
+  hamburgerBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("show");
+  });
+
+  navMenu.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navMenu.classList.remove("show");
+    });
+  });
+});
+
 const track = document.querySelector('.carousel-track');
 const slides = document.querySelectorAll('.carousel-slide');
 const prevBtn = document.querySelector('.carousel-btn.left');
